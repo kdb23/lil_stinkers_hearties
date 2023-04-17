@@ -10,4 +10,10 @@
 
 * CSS (tailwind)
 
+**Stretch**
+- Ship Images
+- Log in
+- Battle
+- Search Bar
+
 
