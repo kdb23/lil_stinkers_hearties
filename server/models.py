@@ -20,6 +20,8 @@ class Attack(db.Model, SerializerMixin):
     pirates = db.relationship("Pirate", backref="attack")
 
     ships = association_proxy("pirates", "ship")
+    serialize_rules = ('-created_at', '-updated_at', '-pirates' )
+
 
 class Ship(db.Model, SerializerMixin):
     __tablename__ = "ships"
@@ -31,7 +33,7 @@ class Ship(db.Model, SerializerMixin):
     pirates = db.relationship("Pirate", backref="ship")
 
     attacks = association_proxy("pirates", "attack")
-    serialize_rules = ('-created_at', '-updated_at', '-pirates' )
+    serialize_rules = ('-created_at', '-updated_at', '-pirates', 'attacks' )
 
 class Pirate(db.Model, SerializerMixin):
     __tablename__= "pirates"
@@ -40,6 +42,8 @@ class Pirate(db.Model, SerializerMixin):
     age = db.Column(db.Integer)
     attack_id = db.Column(db.Integer, db.ForeignKey ("attacks.id"))
     ship_id = db.Column(db.Integer, db.ForeignKey ("ships.id")) 
+
+    serialize_rules = ('-attack_id','-ship_id', '-attack', '-ship')
 
     @validates('age')
     def validate_age(self, key, age_input):

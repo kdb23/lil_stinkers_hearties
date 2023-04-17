@@ -14,7 +14,7 @@ api = Api(app)
 
 class Ships(Resource):
     def get(self):
-        ships = [s.to_dict() for s in Ship.query.all()]
+        ships = [s.to_dict(only=('id', 'name', 'size')) for s in Ship.query.all()]
         return make_response(
              ships, 
              200
@@ -63,8 +63,54 @@ class ShipsById(Resource):
         return make_response({}, 204)
 
 
-
 api.add_resource(ShipsById, '/ships/<int:id>') 
+
+class Attacks(Resource):
+    def get(self):
+        attacks = [a.to_dict() for a in Attack.query.all()]
+        return make_response(
+            attacks,
+            200
+        )
+    def post(self):
+        data = request.get_json()
+        try:
+            new_attack = Attack(
+                name= data['name'],
+                location= data['location'],
+                date= data['date']
+            )
+        except: 
+            return make_response({'error': '400 validation error'} ,400)
+        db.session.add(new_attack)
+        db.session.commit()
+        return make_response( new_attack.to_dict(), 201) 
+    
+api.add_resource(Attacks, '/attacks') 
+
+class Pirates(Resource):
+    def get(self):
+        pirates = [p.to_dict(only=('id', 'name', 'age', 'attack.name', 'ship.name' )) for p in Pirate.query.all()]
+        return make_response(
+            pirates,
+            200
+        )
+    def post(self):
+        data = request.get_json()
+        try:
+            new_pirate = Pirate(
+                name= data['name'],
+                age= data['age'],
+                attack_id= data['attack_id'],
+                ship_id= data['ship_id']
+            )
+        except: 
+            return make_response({'error': '400 validation error'} ,400)
+        db.session.add(new_pirate)
+        db.session.commit()
+        return make_response( new_pirate.to_dict(), 201) 
+    
+api.add_resource(Pirates, '/pirates')     
 
 
     
