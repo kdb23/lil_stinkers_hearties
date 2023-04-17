@@ -24,7 +24,7 @@ class Attack(db.Model, SerializerMixin):
 class Ship(db.Model, SerializerMixin):
     __tablename__ = "ships"
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String)
+    name = db.Column(db.String, unique=True)
     size = db.Column(db.String)
     created_at = db.Column(db.DateTime,server_default=db.func.now())
     updated_at = db.Column(db.DateTime,onupdate=db.func.now())
@@ -40,6 +40,12 @@ class Pirate(db.Model, SerializerMixin):
     attack_id = db.Column(db.Integer, db.ForeignKey ("attacks.id"))
     ship_id = db.Column(db.Integer, db.ForeignKey ("ships.id")) 
 
+    @validates('age')
+    def validate_age(self, key, age_input):
+        if age_input < 18:
+            raise ValueError("Too young to join the Lil Stinkers Crew!")
+        else:
+            return age_input
 
 
 
