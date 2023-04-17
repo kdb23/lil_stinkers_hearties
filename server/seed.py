@@ -14,9 +14,9 @@ def make_attacks():
 
     for i in range(50):
         attack = Attack(
-            name = fake.name(),
-            location = fake.local_latlng(),
-            date = fake.date()
+            name = fake.word(),
+            location = fake.city(),
+            date = fake.date_between(start_date = '-1yr', end_date='today')
         )
         attacks.append(attack)
     db.session.add_all(attacks)
@@ -36,7 +36,7 @@ def make_ships():
             size = random.choice(ship_size)
         )
         ships.append(ship)
-    db.sesion.add_all(ships)
+    db.session.add_all(ships)
     db.session.commit()
 
 def make_pirates():
