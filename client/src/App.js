@@ -1,6 +1,6 @@
 import './App.css';
 import {useEffect, useState} from 'react'
-import Home from './Home'
+import NavBar from './NavBar'
 import {Route, Switch} from 'react-router-dom'
 import ShipContainer from './ShipContainer'
 import AttackContainer from './AttackContainer'
@@ -36,16 +36,11 @@ function App() {
 
   return (
     <div>
+      <NavBar />
       <Switch>
-        <Route exact path = '/'>
-          <Home />
-        </Route>
         <Route exact path = '/ships'>
           <ShipContainer ships={ships} />
         </Route>
-        {/* <Route exact path = '/ships/:id'>
-            <ShipDetails />
-        </Route> */}
         <Route exact path = '/attacks'>
           <AttackContainer attacks={attacks} />
         </Route>
