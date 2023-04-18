@@ -7,6 +7,9 @@ function Form({addAttack}) {
     const [attackName, setAttackName] = useState('');
     const [attackLocation, setAttackLocation] = useState('');
     const [attackDate, setAttackDate] = useState('');
+    const [shipName, setShipName] = useState('');
+    const [shipSize, setShipSize] = useState('');
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -16,7 +19,7 @@ function Form({addAttack}) {
             date: attackDate
 
         };
-        fetch("/attacks", {
+        fetch("http://127.0.0.1:5555/attacks", {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(attackObj),
@@ -26,6 +29,13 @@ function Form({addAttack}) {
         e.target.reset()
 
     };
+    const handleShipSubmit = (e) => {
+        e.preventDefault();
+        let shipObj = {
+            name: shipName,
+            size: shipSize 
+        }
+    }
 
     return (
         <div>
@@ -38,7 +48,7 @@ function Form({addAttack}) {
                     placeholder= "Enter Attack Name"  
                 />
 
-       
+
                 <input 
                     type="text"
                     id="location"
@@ -57,9 +67,36 @@ function Form({addAttack}) {
                     Submit
                 </button>
             </form>
-        </div>
+            <form onSubmit= {handleShipSubmit}className="form">
+                <input 
+                    type="text"
+                    id="name"
+                    name="name"
+                    onChange={(e) => setShipName(e.target.value)} 
+                    placeholder= "Enter Ship Name"  
+                />
 
+
+                <input 
+                    type="text"
+                    id="size"
+                    name="size"
+                    onChange={(e) => setShipSize(e.target.value)} 
+                    placeholder= "Enter Ship Size"  
+                />
+               
+                <button>
+                    Submit
+                </button>
+            </form>
+
+            
+        </div>
     )
+
+
+
+   
 
 
 }

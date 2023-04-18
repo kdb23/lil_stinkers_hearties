@@ -82,9 +82,9 @@ class Attacks(Resource):
                 name= data['name'],
                 location= data['location'],
                 date= data['date'],
-                pirate_id= data['pirate_id'],
-                ship_id= data['ship_id']
-            )
+                pirate_id= 1,
+                ship_id= 1,
+             )
         except: 
             return make_response({'error': '400 validation error'} ,400)
         db.session.add(new_attack)
