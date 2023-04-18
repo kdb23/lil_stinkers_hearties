@@ -7,6 +7,7 @@ function PiratesContainer({pirates}) {
             key = {pirateObj.id}
             name = {pirateObj.name}
             age = {pirateObj.age}
+            rank = {pirateObj.rank}
         />
     })
 
