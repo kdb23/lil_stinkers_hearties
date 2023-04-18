@@ -17,10 +17,10 @@ class Attack(db.Model, SerializerMixin):
     date = db.Column(db.String)
     created_at = db.Column(db.DateTime,server_default=db.func.now())
     updated_at = db.Column(db.DateTime,onupdate=db.func.now())
-    pirates = db.relationship("Pirate", backref="attack")
 
-    ships = association_proxy("pirates", "ship")
-    serialize_rules = ('-created_at', '-updated_at', '-pirates' )
+    pirate_id = db.Column(db.Integer, db.ForeignKey ("pirates.id"))
+    ship_id = db.Column(db.Integer, db.ForeignKey ("ships.id")) 
+    serialize_rules = ('-created_at', '-updated_at', '-pirate', '-ship')
 
 
 class Ship(db.Model, SerializerMixin):
@@ -30,20 +30,23 @@ class Ship(db.Model, SerializerMixin):
     size = db.Column(db.String)
     created_at = db.Column(db.DateTime,server_default=db.func.now())
     updated_at = db.Column(db.DateTime,onupdate=db.func.now())
-    pirates = db.relationship("Pirate", backref="ship")
 
-    attacks = association_proxy("pirates", "attack")
-    serialize_rules = ('-created_at', '-updated_at', '-pirates.ship', 'attacks' )
+    attacks = db.relationship("Attack", backref="ship")
+    pirates = association_proxy("attacks", "pirate")
+    serialize_rules = ('-created_at', '-updated_at', '-attacks.ship', 'pirates')
 
 class Pirate(db.Model, SerializerMixin):
     __tablename__= "pirates"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
     age = db.Column(db.Integer)
-    attack_id = db.Column(db.Integer, db.ForeignKey ("attacks.id"))
-    ship_id = db.Column(db.Integer, db.ForeignKey ("ships.id")) 
-
-    serialize_rules = ('-attack_id','-ship_id', '-attack', '-ship')
+    rank = db.Column(db.String)
+    created_at = db.Column(db.DateTime,server_default=db.func.now())
+    updated_at = db.Column(db.DateTime,onupdate=db.func.now())
+    
+    attacks = db.relationship("Attack", backref="pirate")
+    ships = association_proxy("attacks", "ship")
+    serialize_rules = ('-created_at', '-updated_at', '-attacks')
 
     @validates('age')
     def validate_age(self, key, age_input):
