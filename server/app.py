@@ -17,7 +17,7 @@ api = Api(app)
 
 class Ships(Resource):
     def get(self):
-        ships = [s.to_dict(only=('id', 'name', 'size')) for s in Ship.query.all()]
+        ships = [s.to_dict(only=('id', 'name', 'size', 'pirates')) for s in Ship.query.all()]
         return make_response(
              ships, 
              200

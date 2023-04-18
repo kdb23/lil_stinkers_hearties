@@ -33,7 +33,7 @@ class Ship(db.Model, SerializerMixin):
     pirates = db.relationship("Pirate", backref="ship")
 
     attacks = association_proxy("pirates", "attack")
-    serialize_rules = ('-created_at', '-updated_at', '-pirates', 'attacks' )
+    serialize_rules = ('-created_at', '-updated_at', '-pirates.ship', 'attacks' )
 
 class Pirate(db.Model, SerializerMixin):
     __tablename__= "pirates"
