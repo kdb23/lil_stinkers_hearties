@@ -5,6 +5,7 @@ import {Route, Switch} from 'react-router-dom'
 import ShipContainer from './ShipContainer'
 import AttackContainer from './AttackContainer'
 import PiratesContainer from './PiratesContainer'
+import Form from './Form'
 
 
 function App() {
@@ -31,7 +32,10 @@ function App() {
         .then((r) => r.json())
         .then(setPirates)
     }, [])
-
+    const addAttackState = (newAttackObj) => {
+      setAttacks([newAttackObj, ...attacks])
+    
+    }
 
 
   return (
@@ -46,6 +50,9 @@ function App() {
         </Route>
         <Route exact path = '/pirates'>
           <PiratesContainer pirates={pirates} />
+        </Route>
+        <Route exact path = '/forms'>
+          <Form addAttack = {addAttackState}/> 
         </Route>
       </Switch>
     </div>

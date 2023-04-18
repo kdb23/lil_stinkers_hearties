@@ -19,7 +19,7 @@
 pirate - - - < attack > - - - ship
 
 
-how many pirates belong to a ship
+how many pirates belong to a ship 
 
 ships with the most attacks
 
