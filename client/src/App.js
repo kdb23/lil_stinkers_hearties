@@ -45,6 +45,22 @@ function App() {
       setPirates([newPirateObj, ...pirates])
     }
 
+    const handlePirateDelete = (id) => {
+      setPirates(pirates.filter(pirate => {
+        return pirate.id !== id
+      }))
+    }
+
+    const handlePiratePatch = (updatedPirate) => {
+      setPirates(pirates.map(pirate => {
+        if (pirate.id === updatedPirate.id) {
+          return {...updatedPirate};
+        } else {
+          return pirate
+        }
+      }))
+    }
+
 
   return (
     <div>
@@ -57,7 +73,7 @@ function App() {
           <AttackContainer attacks={attacks} />
         </Route>
         <Route exact path = '/pirates'>
-          <PiratesContainer pirates={pirates} />
+          <PiratesContainer pirates={pirates} handlePirateDelete={handlePirateDelete} handlePiratePatch={handlePiratePatch} />
         </Route>
         <Route exact path = '/forms'>
           <Form addAttack = {addAttackState} addShip= {addShipState} addPirate={addPirateState} /> 

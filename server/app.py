@@ -50,8 +50,14 @@ class PiratesById(Resource):
     def patch(self, id):
         data = request.get_json()
         pirate = Pirate.query.filter_by(id = id).first()
-        for attr in data: 
-            setattr(pirate, attr, data[attr]) 
+        try:
+            for attr in data: 
+                setattr(pirate, attr, data[attr])
+        except ValueError:
+            return make_response(
+                {'error': 'Too young to join the Lil Stinkers Crew!'},
+                400
+            )
         db.session.add(pirate)
         db.session.commit()
         return make_response(pirate.to_dict(), 202)
