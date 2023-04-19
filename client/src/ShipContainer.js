@@ -7,9 +7,9 @@ function ShipContainer({ships}) {
     const boats = ships.map((boatObj) => { 
         const pirates = boatObj.pirates.map((pirate) => {
             return (
-                <div key={pirate.id}>
-                    <p>Name: {pirate.name}</p>
-                    <p>Rank: {pirate.rank}</p>
+                <div key={pirate?.id}>
+                    <p>Name: {pirate?.name}</p>
+                    <p>Rank: {pirate?.rank}</p>
                 </div>
             );
           });

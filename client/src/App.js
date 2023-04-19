@@ -14,7 +14,6 @@ function App() {
     const [attacks, setAttacks] = useState([])
     const [pirates, setPirates] = useState([])
 
-
     useEffect(() => {
       fetch('/ships')
         .then((r) => r.json())

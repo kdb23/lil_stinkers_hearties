@@ -1,8 +1,6 @@
 import {useState} from 'react'
 
 
-
-
 function Form({addAttack, addShip, addPirate}) {
     const [attackName, setAttackName] = useState('');
     const [attackLocation, setAttackLocation] = useState('');
