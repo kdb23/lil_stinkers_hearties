@@ -100,18 +100,25 @@ function Form({addAttack, addShip, addPirate}) {
                                 id="large-input" 
                                 className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 name="age"
-                                onChange={(e) => setPirateAge(parseInt(e.target.value))} 
+                                onChange={(e) => setPirateAge(parseInt(e.target.value))}
+                                placeholder='Must be older than 18' 
                             />
                         </div>
                         <div className='mb-6'>
-                            <label for="large-input" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter Pirate Rank</label>
-                            <input
-                                type="text" 
-                                id="large-input" 
-                                className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                name="rank"
-                                onChange={(e) => setPirateRank(e.target.value)} 
-                            />   
+                            <label for="pirate-rank" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Pirate Rank</label>
+                            <select onChange={(e) => setPirateRank(e.target.value)} id="pirate-rank" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option>--Select--</option>
+                                <option>Captain</option>
+                                <option>First Mate</option>
+                                <option>Quartermaster</option>
+                                <option>Sailing Master</option>
+                                <option>Gunner</option>
+                                <option>Powder Monkey</option>
+                                <option>Surgeon</option>
+                                <option>Boatswain</option>
+                                <option>Cook</option>
+                            </select>
+                            
                         </div>
                         <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
                             Submit
@@ -154,6 +161,7 @@ function Form({addAttack, addShip, addPirate}) {
                                 className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 name="date"
                                 onChange={(e) => setAttackDate(e.target.value)} 
+                                placeholder='MM/DD/YYYY'
                             />   
                         </div>
                         <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
