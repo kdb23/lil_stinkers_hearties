@@ -19,6 +19,9 @@ function NavBar() {
                 <NavLink to="/ships" exact>
                     Ships
                 </NavLink>
+                <NavLink to="/forms" exact>
+                    Forms
+                </NavLink>
             </div>
         </nav>
     )

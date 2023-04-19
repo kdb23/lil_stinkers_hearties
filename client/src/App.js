@@ -32,9 +32,17 @@ function App() {
         .then((r) => r.json())
         .then(setPirates)
     }, [])
+
     const addAttackState = (newAttackObj) => {
       setAttacks([newAttackObj, ...attacks])
-    
+    }
+
+    const addShipState = (newShipObj) => {
+      setShips([newShipObj, ...ships])
+    }
+
+    const addPirateState = (newPirateObj) => {
+      setPirates([newPirateObj, ...pirates])
     }
 
 
@@ -52,7 +60,7 @@ function App() {
           <PiratesContainer pirates={pirates} />
         </Route>
         <Route exact path = '/forms'>
-          <Form addAttack = {addAttackState}/> 
+          <Form addAttack = {addAttackState} addShip= {addShipState} addPirate={addPirateState} /> 
         </Route>
       </Switch>
     </div>
