@@ -13,6 +13,9 @@ function App() {
     const [ships, setShips] = useState([])
     const [attacks, setAttacks] = useState([])
     const [pirates, setPirates] = useState([])
+  
+
+   
 
     useEffect(() => {
       fetch('/ships')

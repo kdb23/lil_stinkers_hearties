@@ -11,6 +11,7 @@ function PiratesContainer({pirates, handlePirateDelete, handlePiratePatch}) {
             rank = {pirateObj.rank}
             handlePirateDelete = {handlePirateDelete}
             handlePiratePatch = {handlePiratePatch}
+
         />
     })
 
