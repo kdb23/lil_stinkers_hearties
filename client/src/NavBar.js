@@ -19,20 +19,20 @@ function NavBar() {
         <nav className="bg-gray-600">"
             <div className="container flex justify between items-center"> 
                 <h1 className= "text-white font-bold">Lil' Stinkers</h1>  
-                <NavLink to className="text-white font-bold /" exact> 🧜‍♀️Home 
+                <NavLink to= '/' exact className="text-white font-bold"> 🧜‍♀️Home 
                 <div className="relative flex flex-wrap items-center justify-between px-2 py-3"/>
                     
                 </NavLink>
-                <NavLink to className="text-white font-bold /attacks" exact>
+                <NavLink to ='/attacks' exact className="text-white font-bold">
                     Attacks
                 </NavLink>
-                <NavLink to className="text-white font-bold /pirates" exact >
+                <NavLink to='/pirates' exact className="text-white font-bold">
                     Pirates
                 </NavLink>
-                <NavLink to className="text-white font-bold /ships" exact>
+                <NavLink to='/ships' exact className="text-white font-bold">
                     Ships
                 </NavLink>
-                <NavLink to className= "text-white font-bold /forms" exact>
+                <NavLink to='/forms' exact className= "text-white font-bold">
                     Forms
                 </NavLink>
             </div>
