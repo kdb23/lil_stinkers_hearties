@@ -1,25 +1,38 @@
 import {NavLink} from 'react-router-dom'
+// import tailwind from "./tailwind.config.js"; 
+
 
 
 function NavBar() {
 
 
+    
+
+
+
+
+
+
+    
+
     return  ( 
-        <nav>
-            <div>
-                <NavLink to="/" exact>
-                    🧜‍♀️Home
+        <nav className="bg-gray-600">"
+            <div className="container flex justify between items-center"> 
+                <h1 className= "text-white font-bold">Lil' Stinkers</h1>  
+                <NavLink to className="text-white font-bold /" exact> 🧜‍♀️Home 
+                <div className="relative flex flex-wrap items-center justify-between px-2 py-3"/>
+                    
                 </NavLink>
-                <NavLink to="/attacks" exact>
+                <NavLink to className="text-white font-bold /attacks" exact>
                     Attacks
                 </NavLink>
-                <NavLink to="/pirates" exact >
+                <NavLink to className="text-white font-bold /pirates" exact >
                     Pirates
                 </NavLink>
-                <NavLink to="/ships" exact>
+                <NavLink to className="text-white font-bold /ships" exact>
                     Ships
                 </NavLink>
-                <NavLink to="/forms" exact>
+                <NavLink to className= "text-white font-bold /forms" exact>
                     Forms
                 </NavLink>
             </div>
