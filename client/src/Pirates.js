@@ -47,6 +47,8 @@ function Pirates({name, age, rank, id, handlePirateDelete, handlePiratePatch}){
     return(
       
       <div>
+        <div className="outline-solid max-w-sm rounded overflow-hidden shadow-lg shadow-gray-500/50">
+          <div className= 'flex flex-col bg-white rounded-lg shadow-md w-full m-6 overflow-hidden sm:w-52'>
               <h1>Name: {name}</h1>
               <p>Age: {age}</p>
               <p>Rank: {rank}</p>
@@ -105,11 +107,9 @@ function Pirates({name, age, rank, id, handlePirateDelete, handlePiratePatch}){
                     <button onClick={handleClose}>Pirate Updated</button>
                   </div>
                 )}
-       
-     
-   
-
-  </div>
+          </div>
+        </div>
+      </div>
   
           );
         }
