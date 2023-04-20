@@ -11,7 +11,7 @@ function NavBar() {
                     🧜‍♀️Home
                 </NavLink>
                 <NavLink to="/attacks" exact>
-                    Attacks
+                    Battles
                 </NavLink>
                 <NavLink to="/pirates" exact >
                     Pirates
