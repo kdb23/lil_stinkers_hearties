@@ -8,15 +8,15 @@ function ShipContainer({ships}) {
         const pirates = boatObj.pirates.map((pirate) => {
             return (
                 <div key={pirate?.id}>
-                    <p>Name: {pirate?.name}</p>
-                    <p>Rank: {pirate?.rank}</p>
+                    <p>☠️: {pirate?.name}</p>
+                    <p>-----🎖️: {pirate?.rank}</p>
                 </div>
             );
           });
         const battles = boatObj.attacks.map((attack) => {
             return (
                 <div key={attack.id}>
-                    <p>Name: {attack.name}</p>
+                    <p>{attack.name}</p>
                 </div>
             )
         })
@@ -32,10 +32,8 @@ function ShipContainer({ships}) {
     })
 
     return (
-        <div>
-            <div className='grid grid-cols-4 gap-3'>
+        <div className='grid grid-cols-4 gap-4'>
             {boats}
-            </div>
         </div>
     )
 }

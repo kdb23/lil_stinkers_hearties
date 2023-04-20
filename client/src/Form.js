@@ -10,6 +10,19 @@ function Form({addAttack, addShip, addPirate}) {
     const [pirateName, setPirateName] = useState('');
     const [pirateAge, setPirateAge] = useState('');
     const [pirateRank, setPirateRank] = useState('');
+    const [showAttack, setShowAttack] = useState(true);
+    const [showShip, setShowShip] = useState(true);
+    const [showPirate, setShowPirate] = useState(true);
+
+    const handleAttack = () => {
+        setShowAttack(!showAttack);
+    };
+    const handleShip = () => {
+        setShowShip(!showShip);
+    };
+    const handlePirate = () => {
+        setShowPirate(!showPirate);
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -63,79 +76,141 @@ function Form({addAttack, addShip, addPirate}) {
     }
 
     return (
-        <div>
-            <form onSubmit= {handleSubmit}className="form">
-                <input 
-                    type="text"
-                    id="name"
-                    name="name"
-                    onChange={(e) => setAttackName(e.target.value)} 
-                    placeholder= "Enter Attack Name"  
-                />
-                <input 
-                    type="text"
-                    id="location"
-                    name="location"
-                    onChange={(e) => setAttackLocation(e.target.value)} 
-                    placeholder= "Enter Attack Location"  
-                />
-                <input
-                    type="text"
-                    id= "date"
-                    name="date"
-                    onChange={(e) => setAttackDate(e.target.value)} 
-                    placeholder= "Enter Attack date"  
-                />   
-                <button>
-                    Submit
-                </button>
-            </form>
-            <form onSubmit= {handleShipSubmit}className="form">
-                <input 
-                    type="text"
-                    id="name"
-                    name="name"
-                    onChange={(e) => setShipName(e.target.value)} 
-                    placeholder= "Enter Ship Name"  
-                />
-                <input 
-                    type="text"
-                    id="size"
-                    name="size"
-                    onChange={(e) => setShipSize(e.target.value)} 
-                    placeholder= "Enter Ship Size"  
-                />
-                <button>
-                    Submit
-                </button>
-            </form>
+        <div className="flex flex-row justify-between ">
+            <div className='box-border h-500 w-500 p-4 border-4 grid justify-items-center'>
+                <h1 className='mb-2 mt-0 text-5xl font-medium leading-tight text-primary' onClick={handlePirate}>Click here to add a Pirate</h1>
+                {showPirate ? (
+                    <img className='object-scale-down h-48 w-96' src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/painty-the-pirate-william-gerard.jpg" alt="Pirate"/>
+                ) : (
+                    <form onSubmit= {handlePirateSubmit}className="form">
+                        <div className='mb-6'>
+                            <label for="large-input" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter Pirate Name</label>
+                            <input 
+                                type="text" 
+                                id="large-input" 
+                                className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                name="name"
+                                onChange={(e) => setPirateName(e.target.value)} 
+                            />    
+                        </div>
+                        <div className='mb-6'>
+                            <label for="large-input" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter Pirate Age</label>
+                            <input 
+                                type="text" 
+                                id="large-input" 
+                                className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                name="age"
+                                onChange={(e) => setPirateAge(parseInt(e.target.value))}
+                                placeholder='Must be older than 18' 
+                            />
+                        </div>
+                        <div className='mb-6'>
+                            <label for="pirate-rank" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Pirate Rank</label>
+                            <select onChange={(e) => setPirateRank(e.target.value)} id="pirate-rank" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option>--Select--</option>
+                                <option>Captain</option>
+                                <option>First Mate</option>
+                                <option>Quartermaster</option>
+                                <option>Sailing Master</option>
+                                <option>Gunner</option>
+                                <option>Powder Monkey</option>
+                                <option>Surgeon</option>
+                                <option>Boatswain</option>
+                                <option>Cook</option>
+                            </select>
+                            
+                        </div>
+                        <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
+                            Submit
+                        </button>
+                    </form>
+                )
+                }
+            </div>
+            <div className='box-border h-500 w-500 p-4 border-4 grid justify-items-center'>
+                <h1 className='mb-2 mt-0 text-5xl font-medium leading-tight text-primary' onClick={handleAttack}>Click here to add an Attack</h1>
+                {showAttack ? (
+                    <img className='object-scale-down h-48 w-96' src="https://cdn.hswstatic.com/gif/storymaker-most-famous-pirates-caribbean-1105201.jpg" alt="Pirate Attack"/>
+                ) : (
+                    <form onSubmit= {handleSubmit}className="form">
+                        <div className='mb-6'>
+                            <label for="large-input" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter Attack Name</label>
+                            <input 
+                                type="text" 
+                                id="large-input" 
+                                className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                name="name"
+                                onChange={(e) => setAttackName(e.target.value)} 
+                            />
+                        </div>
+                        <div className='mb-6'>
+                            <label for="large-input" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter Attack Location</label>
+                            <input 
+                                type="text" 
+                                id="large-input" 
+                                className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                name="location"
+                                onChange={(e) => setAttackLocation(e.target.value)} 
+                            />
+                        </div>
+                        <div className='mb-6'>
+                            <label for="large-input" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter Attack date</label>
+                            <input
+                                type="text" 
+                                id="large-input" 
+                                className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                name="date"
+                                onChange={(e) => setAttackDate(e.target.value)} 
+                                placeholder='MM/DD/YYYY'
+                            />   
+                        </div>
+                        <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
+                            Submit
+                        </button>
+                    </form>
+                )
+                }                
+            </div>
 
-            <form onSubmit= {handlePirateSubmit}className="form">
-                <input 
-                    type="text"
-                    id="name"
-                    name="name"
-                    onChange={(e) => setPirateName(e.target.value)} 
-                    placeholder= "Enter Pirate Name"  
-                />
-                <input 
-                    type="text"
-                    id="age"
-                    name="age"
-                    onChange={(e) => setPirateAge(parseInt(e.target.value))} 
-                    placeholder= "Enter Pirate Age"  
-                />
-                <input
-                    type="text"
-                    id= "rank"
-                    name="rank"
-                    onChange={(e) => setPirateRank(e.target.value)} 
-                    placeholder= "Enter Pirate Rank"  
-                />   
-                <button>
-                    Submit
-                </button>
-            </form>
+            <div className='box-border h-500 w-500 p-4 border-4 grid justify-items-center'>
+                <h1 className='mb-2 mt-0 text-5xl font-medium leading-tight text-primary ' onClick={handleShip}>Click here to add a Ship</h1>
+                {showShip ? (
+                    <img className='object-scale-down h-48 w-96' src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/The_Pirate_Bay_logo.svg/2000px-The_Pirate_Bay_logo.svg.png" alt="Pirate Ship"/>
+                ) : (
+                    <form onSubmit= {handleShipSubmit}className="form">
+                        <div className='mb-6'>
+                            <label for="large-input" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter Ship Name</label>
+                            <input 
+                                type="text" 
+                                id="large-input" 
+                                className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                name="name"
+                                onChange={(e) => setShipName(e.target.value)} 
+                            />
+                        </div>
+                        <div className='mb-6'>
+                            <label for="ship-sizes" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Ship Size</label>
+                            <select onChange={(e) => setShipSize(e.target.value)} id="ship-sizes" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option>--Select--</option>
+                                <option>Handy</option>
+                                <option>Aframax</option>
+                                <option>Panamax</option>
+                                <option>Suezmax</option>
+                                <option>Capesize</option>
+                                <option>Supertanker</option>
+                                <option>Chinamax</option>
+                                <option>Seawaymax</option>
+                                <option>PaddleBoat</option>
+                            </select>
+                        </div>
+                        <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
+                            Submit
+                        </button>
+                    </form>
+                )
+                }
+            </div>
+            
         </div>
     )
 

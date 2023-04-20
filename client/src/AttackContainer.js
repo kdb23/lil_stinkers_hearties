@@ -13,8 +13,8 @@ function AttackContainer({attacks}) {
 
     return (
         <div>
-            <div className='grid grid-cols-4 gap-4'>
-            {fight}
+            <div className='grid grid-cols-6 gap-4'>
+                {fight}
             </div>
         </div>
     )
