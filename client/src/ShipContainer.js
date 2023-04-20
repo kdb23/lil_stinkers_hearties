@@ -33,7 +33,9 @@ function ShipContainer({ships}) {
 
     return (
         <div>
+            <div className='grid grid-cols-4 gap-3'>
             {boats}
+            </div>
         </div>
     )
 }
