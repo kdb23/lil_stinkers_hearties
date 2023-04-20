@@ -15,7 +15,7 @@ def make_attacks():
 
     for i in range(50):
         attack = Attack(
-            name = f'The Battle of {fake.word()}',
+            name = f'The Battle of {fake.word().capitalize()}',
             location = fake.city(),
             date = fake.date_between(start_date = '-1yr', end_date='today'),
             pirate_id = rc(pirates)[0],

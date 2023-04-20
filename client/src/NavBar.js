@@ -71,6 +71,13 @@ function NavBar() {
             <span className="ml-2"> 💣 ATTACKS 💣 </span>
           </a>         
         </NavLink>
+        </li>
+        <li className="nav-item">
+        <NavLink to='/forms' exact className= "text-white font-bold">
+          <a className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-white hover:opacity-75" href="#pablo">
+            <span className="ml-2"> 💣 Form 💣 </span>
+          </a>         
+        </NavLink>
           
         </li>
       </ul>
@@ -94,13 +101,8 @@ function NavBar() {
 
 
                 </NavLink>
-<<<<<<< HEAD
-                <NavLink to="/attacks" exact>
-                    Battles
-=======
                 <NavLink to ='/attacks' exact className="text-white font-bold">
                     
->>>>>>> main
                 </NavLink>
                 <NavLink to='/pirates' exact className="text-white font-bold">
                     

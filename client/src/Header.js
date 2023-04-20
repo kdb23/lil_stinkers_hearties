@@ -1,4 +1,3 @@
-import react from 'react';
 
 
 function Header() {
@@ -6,7 +5,7 @@ function Header() {
 
         <div>
             <div className='px-7 py-4 bg-black rounded-lg leading-non flex'>
-                <img src='./images/lilstinkersflag.png' />
+                <img src='./images/lilstinkersflag.png' alt="flag" />
 
             </div>
         </div>

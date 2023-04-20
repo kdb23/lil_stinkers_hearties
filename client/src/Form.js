@@ -26,8 +26,10 @@ function Form({addAttack, addShip, addPirate}) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const capitalized = attackName.charAt(0).toUpperCase() + attackName.slice(1)
+
         let attackObj = {
-            name: attackName,
+            name: `The Battle of ${capitalized}`,
             location: attackLocation,
             date: attackDate
 
@@ -70,8 +72,14 @@ function Form({addAttack, addShip, addPirate}) {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(pirateObj),
         })
-            .then((r) => r.json())
-            .then(addPirate)
+            .then((r) => {
+                if (r.ok) {
+                    alert("Successfully added a pirate! ARGGGGGH!")
+                    addPirate(pirateObj)
+                } else {
+                    alert("Pirate must be at least 18 years old!")
+                }
+            })
         e.target.reset()
     }
 
