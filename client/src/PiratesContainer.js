@@ -18,7 +18,7 @@ function PiratesContainer({pirates, handlePirateDelete, handlePiratePatch}) {
     return (
         <div>
             <h1 className='font-bold text-xl text-center'>Decide a Pirates Fate - Will They Declare <span className='animate-pulse text-gray-500'>Parley</span> or Will They <span className='animate-pulse text-red-500'> Walk The Plank?</span></h1>
-            <div className='grid grid-cols-4 gap-4'>
+            <div className='bg-blue-200 grid grid-cols-4 gap-4'>
                 {felon} 
             </div>
         </div>

@@ -6,6 +6,7 @@ import ShipContainer from './ShipContainer'
 import AttackContainer from './AttackContainer'
 import PiratesContainer from './PiratesContainer'
 import Form from './Form'
+import Header from './Header'
 
 
 function App() {
@@ -81,6 +82,7 @@ function App() {
           <Form addAttack = {addAttackState} addShip= {addShipState} addPirate={addPirateState} /> 
         </Route>
       </Switch>
+      <Header />
     </div>
   );
 }
