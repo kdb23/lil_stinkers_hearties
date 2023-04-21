@@ -48,7 +48,7 @@ function Pirates({name, age, rank, id, handlePirateDelete, handlePiratePatch}){
       
       <div>
         <div className="outline-solid max-w-sm rounded overflow-hidden shadow-lg shadow-gray-500/50">
-          <div className= 'bg-blue-200 flex flex-col rounded-lg shadow-md w-full m-6 overflow-hidden sm:w-52'>
+          <div className= 'flex flex-col rounded-lg shadow-md w-full m-6 overflow-hidden sm:w-52'>
               <h1>Name: {name}</h1>
               <p>Age: {age}</p>
               <p>Rank: {rank}</p>
@@ -76,7 +76,7 @@ function Pirates({name, age, rank, id, handlePirateDelete, handlePiratePatch}){
                   ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
                   </button>
                   )}
-              <button onClick={handlePatchClose} className="bg-gray-500 text-white active:bg-blue-300 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+              <button onClick={handlePatchClose} className="bg-gray-500 text-white active:bg-gray-300 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                   type="button">Parley</button>
                 {isPatchVi && (
                   <div>
@@ -95,16 +95,23 @@ function Pirates({name, age, rank, id, handlePirateDelete, handlePiratePatch}){
                         onChange={(e) => setPirateAge(parseInt(e.target.value))}
                         placeholder="Enter Pirate Age"
                       />
-                      <input
-                        type="text"
-                        id="rank"
-                        name="rank"
-                        onChange={(e) => setPirateRank(e.target.value)}
-                        placeholder="Enter Pirate Rank"
-                      />
-                      <button type="submit">Save Pirate Changes</button>
+                      <div className='mb-6'>
+                          <label for="pirate-rank" className="block mb-2 text-sm font-medium text-gray-700 dark:text-white">Select Pirate Rank</label>
+                          <select onChange={(e) => setPirateRank(e.target.value)} id="pirate-rank" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                              <option>--Select--</option>
+                              <option>Captain</option>
+                              <option>First Mate</option>
+                              <option>Quartermaster</option>
+                              <option>Sailing Master</option>
+                              <option>Gunner</option>
+                              <option>Powder Monkey</option>
+                              <option>Surgeon</option>
+                              <option>Boatswain</option>
+                              <option>Cook</option>
+                          </select>
+                        </div>
                     </form>
-                    <button onClick={handleClose}>Pirate Updated</button>
+                    <button onClick={handleClose}>Provide Parley</button>
                   </div>
                 )}
           </div>

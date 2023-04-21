@@ -94,13 +94,8 @@ function NavBar() {
 
 
                 </NavLink>
-<<<<<<< HEAD
-                <NavLink to="/attacks" exact>
-                    Battles
-=======
                 <NavLink to ='/attacks' exact className="text-white font-bold">
                     
->>>>>>> main
                 </NavLink>
                 <NavLink to='/pirates' exact className="text-white font-bold">
                     
