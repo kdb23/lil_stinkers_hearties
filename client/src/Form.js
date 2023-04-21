@@ -92,7 +92,7 @@ function Form({addAttack, addShip, addPirate}) {
                 ) : (
                     <form onSubmit= {handlePirateSubmit}className="form">
                         <div className='mb-6'>
-                            <label for="large-input" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter Pirate Name</label>
+                            <label for="large-input" className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Enter Pirate Name</label>
                             <input 
                                 type="text" 
                                 id="large-input" 
@@ -102,7 +102,7 @@ function Form({addAttack, addShip, addPirate}) {
                             />    
                         </div>
                         <div className='mb-6'>
-                            <label for="large-input" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter Pirate Age</label>
+                            <label for="large-input" className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Enter Pirate Age</label>
                             <input 
                                 type="text" 
                                 id="large-input" 
@@ -113,7 +113,7 @@ function Form({addAttack, addShip, addPirate}) {
                             />
                         </div>
                         <div className='mb-6'>
-                            <label for="pirate-rank" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Pirate Rank</label>
+                            <label for="pirate-rank" className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Select Pirate Rank</label>
                             <select onChange={(e) => setPirateRank(e.target.value)} id="pirate-rank" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option>--Select--</option>
                                 <option>Captain</option>
@@ -136,13 +136,13 @@ function Form({addAttack, addShip, addPirate}) {
                 }
             </div>
             <div className='box-border h-500 w-500 p-4 border-4 grid justify-items-center'>
-                <h1 className='mb-2 mt-0 text-5xl font-medium leading-tight text-primary' onClick={handleAttack}>Click here to add an Attack</h1>
+                <h1 className='mb-2 mt-0 text-5xl font-medium leading-tight text-primary' onClick={handleAttack}>Click here to add an Battle</h1>
                 {showAttack ? (
                     <img className='object-scale-down h-48 w-96' src="https://cdn.hswstatic.com/gif/storymaker-most-famous-pirates-caribbean-1105201.jpg" alt="Pirate Attack"/>
                 ) : (
                     <form onSubmit= {handleSubmit}className="form">
                         <div className='mb-6'>
-                            <label for="large-input" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter Attack Name</label>
+                            <label for="large-input" className="block mb-2 text-sm font-medium text-gray-90 dark:text-black">Enter Battle Name</label>
                             <input 
                                 type="text" 
                                 id="large-input" 
@@ -152,7 +152,7 @@ function Form({addAttack, addShip, addPirate}) {
                             />
                         </div>
                         <div className='mb-6'>
-                            <label for="large-input" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter Attack Location</label>
+                            <label for="large-input" className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Enter Battle Location</label>
                             <input 
                                 type="text" 
                                 id="large-input" 
@@ -162,7 +162,7 @@ function Form({addAttack, addShip, addPirate}) {
                             />
                         </div>
                         <div className='mb-6'>
-                            <label for="large-input" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter Attack date</label>
+                            <label for="large-input" className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Enter Battle Date</label>
                             <input
                                 type="text" 
                                 id="large-input" 
@@ -187,7 +187,7 @@ function Form({addAttack, addShip, addPirate}) {
                 ) : (
                     <form onSubmit= {handleShipSubmit}className="form">
                         <div className='mb-6'>
-                            <label for="large-input" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter Ship Name</label>
+                            <label for="large-input" className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Enter Ship Name</label>
                             <input 
                                 type="text" 
                                 id="large-input" 
@@ -197,7 +197,7 @@ function Form({addAttack, addShip, addPirate}) {
                             />
                         </div>
                         <div className='mb-6'>
-                            <label for="ship-sizes" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Ship Size</label>
+                            <label for="ship-sizes" className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Select Ship Size</label>
                             <select onChange={(e) => setShipSize(e.target.value)} id="ship-sizes" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option>--Select--</option>
                                 <option>Handy</option>

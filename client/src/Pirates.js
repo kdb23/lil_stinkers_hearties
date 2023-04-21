@@ -110,7 +110,8 @@ function Pirates({name, age, rank, id, handlePirateDelete, handlePiratePatch}){
                           </select>
                         </div>
                     </form>
-                    <button onClick={handleClose}>Provide Parley</button>
+                    <button onClick={handlePatch}>Provide Parley</button>
+                    <button onClick={handlePatchClose}>Back To The Brig</button>
                   </div>
                 )}
           </div>
