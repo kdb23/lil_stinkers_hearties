@@ -6,15 +6,15 @@ import React from "react";
 function NavBar() {
 
 
-    
 
     return  ( 
-        <nav className="bg-white-900">"
+        // <div className="h-screen">
+        <nav className="bg-white-900">
             <div className="container flex justify between items-center"> 
                 <h1 className= "text-white font-bold">All Aboard Lil' Stinkers!</h1>  
-                <NavLink to= '/' exact className="text-white font-bold">
+              
                 <div className=" flex-nowrap items-center"/> 
-                
+              
                
 
 
@@ -23,6 +23,8 @@ function NavBar() {
               
 
 <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-gray-500 mb-3">
+ {/* <div className="w=1/3"></div> */}
+ {/* <div class="w-1/3 h-screen flex items-center justify-between p-1"/> */}
   <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
     <div className="w-full relative flex justify-between lg:w-auto  px-4 lg:static lg:block lg:justify-start">
       <a className="text-lg font-Helvetica-BoldOblique leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white" href="#pablo">
@@ -44,10 +46,11 @@ function NavBar() {
           </a>
         </li>
         <li className="nav-item">
+        <NavLink to= '/' exact className="text-white font-bold">
           <a className="px-3 py-2 flex items-center text-sm uppercase font-bold text-white hover:opacity-75" href="#pablo">
             <span className="ml-2"> HOME </span>
           </a>
-          {/* </NavLink> */}
+        </NavLink> 
         </li>
         <li className="nav-item">
         <NavLink to='/pirates' exact className="text-white font-bold">
@@ -68,7 +71,7 @@ function NavBar() {
         <li className="nav-item">
         <NavLink to ='/attacks' exact className="text-white font-bold">
         <a className="px-3 py-2 flex items-center text-sm uppercase font-bold leading-snug text-white hover:opacity-75" href="#pablo">
-            <span className="ml-2"> 💣 ATTACKS 💣 </span>
+            <span className="ml-2"> 💣 BATTLES 💣 </span>
           </a>         
         </NavLink>
         </li>
@@ -83,11 +86,11 @@ function NavBar() {
       </ul>
       <div className="relative flex w-full sm:w-7/12 md:w-5/12 px-4 flex-wrap items-stretch lg:ml-auto">
         <div className="flex">
-          <span className="font-normal leading-snug flex text-center white-space-no-wrap border border-solid border-black-600 rounded-full text-sm bg-black-100 items-center rounded-r-none pl-2 py-1 text-black-800 border-r-0 placeholder-black-300">
+          {/* <span className="font-normal leading-snug flex text-center white-space-no-wrap border border-solid border-black-600 rounded-full text-sm bg-black-100 items-center rounded-r-none pl-2 py-1 text-black-800 border-r-0 placeholder-black-300">
             <i className="fas fa-search"></i>
-          </span>
+          </span> */}
         </div>
-        <input type="text" className="px-2 py-1 h-8 border border-solid  border-white-600 rounded-full text-sm leading-snug text-search-700 bg-black-100 shadow-none outline-none focus:outline-none w-full font-roboto-mono rounded-l-none flex-1 border-l-0 placeholder-black-300" placeholder="Search" />
+        {/* <input type="text" className="px-2 py-1 h-8 border border-solid  border-white-600 rounded-full text-sm leading-snug text-search-700 bg-black-100 shadow-none outline-none focus:outline-none w-full font-roboto-mono rounded-l-none flex-1 border-l-0 placeholder-black-300" placeholder="Search" /> */}
       </div>
     </div>
   </div>
@@ -100,19 +103,7 @@ function NavBar() {
 
 
 
-                </NavLink>
-                <NavLink to ='/attacks' exact className="text-white font-bold">
-                    
-                </NavLink>
-                <NavLink to='/pirates' exact className="text-white font-bold">
-                    
-                </NavLink>
-                <NavLink to='/ships' exact className="text-white font-bold">
-                    
-                </NavLink>
-                <NavLink to='/forms' exact className= "text-white font-bold">
-                    
-                </NavLink>
+              
             </div>
         </nav>
     )
