@@ -1,5 +1,5 @@
 import react from 'react';
-import AudioFile from '../.images/AudioFile.mp3'
+import AudioFile from './AudioFile.mp3'
 
 
 function Header() {
