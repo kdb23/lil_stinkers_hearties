@@ -1,6 +1,5 @@
 import React from 'react';
 import {useState} from 'react';
-import styles from './App.css'
 
 
 function Pirates({name, age, rank, id, handlePirateDelete, handlePiratePatch}){
