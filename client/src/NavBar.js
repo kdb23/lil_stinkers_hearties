@@ -5,10 +5,11 @@ import AudioFile from './AudioFile.mp3'
 function NavBar() {
 
     return  ( 
-        <nav className="bg-gray-500 w-screen">
-            <div className="flex justify between items-center">  
+        <nav className="bg-white w-screen">
+            <div className="flex justify between items-center"> 
+                {/* <h1 className= "text-white font-bold">All Aboard Lil' Stinkers!</h1>   */}
                 <div className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-gray-500 mb-6 w-full">
-                  <div className="flex justify-between lg:w-auto  px-4 lg:static lg:block lg:justify-start">
+                <div className="flex justify-between lg:w-auto  px-4 lg:static lg:block lg:justify-start">
                         <a className="text-lg font-Helvetica-BoldOblique leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white" href="#pablo">
                           All Aboard LiL' Stinkers!
                         </a>
