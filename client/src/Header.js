@@ -1,5 +1,5 @@
-import react from 'react';
-import AudioFile from './AudioFile.mp3'
+// import react from 'react';
+// import AudioFile from './AudioFile.mp3'
 
 
 function Header() {
@@ -7,11 +7,11 @@ function Header() {
 
         <div>
             <div className='animate-waving-flag justify-center leading-non flex'>
-                <img src='./images/lilstinkersflag.png' />
+                <img src='./images/lilstinkersflag.png' alt="priate flag" />
             <div className= 'flex items-right'>
-                <audio controls className='outline-none h-10 w-48' loop>
+                {/* <audio controls className='outline-none h-10 w-48' loop>
                     <source src={AudioFile} type='audio/mpeg' />
-                </audio>
+                </audio> */}
             </div>
             </div>
         </div>

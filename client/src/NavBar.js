@@ -1,16 +1,14 @@
 import {NavLink} from 'react-router-dom'
 import React from "react";
+import AudioFile from './AudioFile.mp3'
 
 function NavBar() {
 
     return  ( 
-        <nav className="bg-white">
-            <div className="flex justify between items-center mx-auto"> 
-                <h1 className= "text-white font-bold">All Aboard Lil' Stinkers!</h1>  
-                <div className=" flex-nowrap items-center"/> 
-                  <div className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-gray-500 mb-3 w-full">
-                    <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
-                      <div className="w-full relative flex justify-between lg:w-auto  px-4 lg:static lg:block lg:justify-start">
+        <nav className="bg-gray-500 w-screen">
+            <div className="flex justify between items-center">  
+                <div className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-gray-500 mb-6 w-full">
+                  <div className="flex justify-between lg:w-auto  px-4 lg:static lg:block lg:justify-start">
                         <a className="text-lg font-Helvetica-BoldOblique leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white" href="#pablo">
                           All Aboard LiL' Stinkers!
                         </a>
@@ -65,13 +63,14 @@ function NavBar() {
                                     <span className="ml-2"> 📝Forms </span>
                                 </a>         
                               </NavLink>
-
                             </li>
+                            <audio controls className='outline-none h-10 w-48' loop>
+                                <source src={AudioFile} type='audio/mpeg' />
+                            </audio>
                           </ul>
                         </div>
                     </div>
                   </div>
-              </div>
           </nav>
     )
 
